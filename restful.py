@@ -7,13 +7,13 @@ def main():
   return jsonify({"msg": "Hello World !"})
 
 app.route("/home/", methods=["GET"])
-def main():
+def main2():
   return jsonify({"msg": "Hello World !"})
 
 app.route("/test/", methods=["GET"])
-def main():
+def main3():
   return "Hello World !"
 
 
-if __name__ == "__main__":
-  app.run()
+# if __name__ == "__main__":
+#   app.run()
