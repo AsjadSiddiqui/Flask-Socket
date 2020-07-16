@@ -1,8 +1,8 @@
 from flask import Flask, jsonify
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path="/")
 
-app.route("/")
+app.route("/", methods=["GET"])
 def main():
   return jsonify({"msg": "Hello World !"})
 
