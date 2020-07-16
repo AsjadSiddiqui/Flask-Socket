@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:$PORT restful:app
+web: gunicorn restful:app
