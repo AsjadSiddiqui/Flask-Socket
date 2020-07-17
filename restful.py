@@ -1,6 +1,9 @@
 from flask import Flask, jsonify
+from flask_socketio import SocketIO
 
 app = Flask(__name__)
+
+socketio = SocketIO(app)
 
 @app.route("/")
 def helloWorld():
@@ -16,4 +19,4 @@ def hello3():
 
 
 if __name__ == "__main__":
-  app.run()
+  socketio.run(app)
