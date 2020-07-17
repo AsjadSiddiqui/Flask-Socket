@@ -2,16 +2,16 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-app.route("/", methods=["GET"])
-def main():
+@app.route("/")
+def helloWorld():
   return jsonify({"msg": "Hello World !"})
 
-app.route("/home/", methods=["GET"])
-def main2():
+@app.route("/home/", methods=["GET"])
+def hello2():
   return jsonify({"msg": "Hello World !"})
 
-app.route("/test/", methods=["GET"])
-def main3():
+@app.route("/test/", methods=["GET"])
+def hello3():
   return "Hello World !"
 
 
