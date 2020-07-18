@@ -23,7 +23,7 @@ def hello3():
 @socketio.on("connect")
 def connect():
   print("Someone Joined !")
-  socketio.emit("connected", {"test": True})
+  socketio.emit("connect", {"test": True})
 
 
 @socketio.on("hola")
