@@ -23,12 +23,12 @@ def hello3():
 @socketio.on("connect")
 def connect():
   print("Someone Joined !")
-  emit("connect", "HI", broadcast=True)
+  emit("connect", "HI")
 
 
 @socketio.on("hola")
 def joinRoom(data):
-  print("HOLA CALLED SERVER")
+  print("HOLA CALLED SERVER ======================================================================")
   print(data)
   try:
     print(f"A Person, {data['userName']} has joined the Room {data['room']}")

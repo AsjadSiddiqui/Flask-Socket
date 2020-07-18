@@ -1,1 +1,1 @@
-web: gunicorn restful:app
+web: gunicorn -k flask_sockets.worker restful:app
