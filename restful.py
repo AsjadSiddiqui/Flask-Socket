@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO, join_room
 
 app = Flask(__name__)
 
@@ -16,6 +16,19 @@ def hello2():
 @app.route("/test/", methods=["GET"])
 def hello3():
   return "Hello World !"
+
+
+#===============================================================================================================
+
+@socketio.on("connect")
+def joinRoom(data):
+  join_room(data["room"])
+  print(f"A Person, {data["userName"]} has joined the Room {data["room"]}")
+  socketio.emit("connected", data)
+
+@socketio.on("msg")
+def msgRoom(data):
+  socketio.emit("msg", data, room=data["room"])
 
 
 if __name__ == "__main__":
