@@ -25,9 +25,9 @@ def connect():
   print("Someone Joined !")
   query = request.args
   data = query.to_dict()
-  
-  userName = data["name"])
-  room = data["room"])
+
+  userName = data["name"]
+  room = data["room"]
   userInfo = {
     "name": userName,
     "room": room
