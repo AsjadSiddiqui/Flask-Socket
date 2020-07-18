@@ -24,7 +24,8 @@ def hello3():
 def connect():
   print("Someone Joined !")
   #LEFT IT HERE!
-  query = request.args.get('query').replace("/", "")
+  query = request.args.get('query')
+  
   print(query)
   print(request.args)
   # emit("connect", "HI")
