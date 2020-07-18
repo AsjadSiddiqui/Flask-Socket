@@ -27,7 +27,8 @@ def connect():
   query = request.args.get('query').replace("/", "")
   print(query)
   print(request.args)
-  emit("connect", "HI")
+  # emit("connect", "HI")
+  emit("connected", data)
 
 
 @socketio.on("hola")
