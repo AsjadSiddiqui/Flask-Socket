@@ -21,10 +21,16 @@ def hello3():
 #===============================================================================================================
 
 @socketio.on("connect")
+def connect():
+  print("Someone Joined !")
+
+
+
+@socketio.on("connection")
 def joinRoom(data):
-  join_room(data["room"])
   try:
     print(f"A Person, {data['userName']} has joined the Room {data['room']}")
+    join_room(data["room"])
   except Exception as e:
     print(e)
     print(data)
