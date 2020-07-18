@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from flask_socketio import SocketIO, join_room
+from flask_socketio import SocketIO, join_room, emit, send
 
 app = Flask(__name__)
 
@@ -23,7 +23,7 @@ def hello3():
 @socketio.on("connect")
 def connect():
   print("Someone Joined !")
-  socketio.emit("connect", {"test": True})
+  emit("connect", "HI", broadcast=True)
 
 
 @socketio.on("hola")
@@ -37,12 +37,12 @@ def joinRoom(data):
     print("ERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")
     print(e)
     print(data)
-  socketio.emit("connected", data)
+  emit("connected", data)
 
 
 @socketio.on("msg")
 def msgRoom(data):
-  socketio.emit("msg", data, room=data["room"])
+  emit("msg", data, room=data["room"])
 
 
 if __name__ == "__main__":
