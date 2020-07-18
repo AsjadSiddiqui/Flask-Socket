@@ -23,20 +23,17 @@ def hello3():
 @socketio.on("connect")
 def connect():
   print("Someone Joined !")
-  #LEFT IT HERE!
   query = request.args
-  # name = request.args.getlist('name')
-  # name2 = request.args[0]['name']
-  # name3 = request.args['name']
-  room = request.args.getlist('room[]')
   data = query.to_dict()
-  print(data)
-  # print(name2)
-  print(data["name"])
-  print(room)
-  print(request.args)
+  
+  userName = data["name"])
+  room = data["room"])
+  userInfo = {
+    "name": userName,
+    "room": room
+  }
   # emit("connect", "HI")
-  emit("connected", "Hello There!")
+  emit("connected", userInfo)
 
 
 @socketio.on("hola")
