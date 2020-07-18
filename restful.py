@@ -24,14 +24,15 @@ def hello3():
 def connect():
   print("Someone Joined !")
   #LEFT IT HERE!
-  query = request.args.get('query')
-  name = request.args.getlist('name')
-  name2 = request.args[0]['name']
-  name3 = request.args['name']
+  query = request.args
+  # name = request.args.getlist('name')
+  # name2 = request.args[0]['name']
+  # name3 = request.args['name']
   room = request.args.getlist('room[]')
-  print(name)
-  print(name2)
-  print(name3)
+  data = query.to_dict()
+  print(data)
+  # print(name2)
+  print(data["name"])
   print(room)
   print(request.args)
   # emit("connect", "HI")
