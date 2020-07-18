@@ -25,7 +25,9 @@ def connect():
   print("Someone Joined !")
   #LEFT IT HERE!
   query = request.args.get('query').replace("/", "")
-  # emit("connect", "HI")
+  print(query)
+  print(request.args)
+  emit("connect", "HI")
 
 
 @socketio.on("hola")
