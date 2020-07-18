@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request, Response
 from flask_socketio import SocketIO, join_room, emit, send
 
 app = Flask(__name__)
@@ -23,7 +23,9 @@ def hello3():
 @socketio.on("connect")
 def connect():
   print("Someone Joined !")
-  emit("connect", "HI")
+  #LEFT IT HERE!
+  query = request.args.get('query').replace("/", "")
+  # emit("connect", "HI")
 
 
 @socketio.on("hola")
