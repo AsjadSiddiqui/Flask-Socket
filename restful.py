@@ -25,9 +25,13 @@ def connect():
   print("Someone Joined !")
   #LEFT IT HERE!
   query = request.args.get('query')
-  name = request.args.getlist('name[]')
+  name = request.args.getlist('name')
+  name2 = request.args[0]['name']
+  name3 = request.args['name']
   room = request.args.getlist('room[]')
   print(name)
+  print(name2)
+  print(name3)
   print(room)
   print(request.args)
   # emit("connect", "HI")
