@@ -22,7 +22,6 @@ def hello3():
 
 @socketio.on("connect")
 def connect():
-  print("Someone Joined !")
   query = request.args
   data = query.to_dict()
 
@@ -32,6 +31,8 @@ def connect():
     "name": userName,
     "room": room
   }
+  print("Someone Joined !")
+  print("Joining In ROOM: " + room)
   join_room(room)
   # emit("connect", "HI")
   emit("connected", userInfo)
@@ -58,7 +59,7 @@ def msgRoom(data):
 @socketio.on("newMsg")
 def msgRoom(data):
   print(data)
-  emit("newMsg", data)
+  emit("newMsg", data, room=data["room"])
 
 
 if __name__ == "__main__":
