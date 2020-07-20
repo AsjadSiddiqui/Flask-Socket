@@ -54,6 +54,11 @@ def joinRoom(data):
 def msgRoom(data):
   emit("msg", data, room=data["room"])
 
+@socketio.on("newMsg")
+def msgRoom(data):
+  print(data)
+  emit("newMsg", data, room=data["room"])
+
 
 if __name__ == "__main__":
   socketio.run(app)
