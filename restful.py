@@ -57,7 +57,7 @@ def msgRoom(data):
 @socketio.on("newMsg")
 def msgRoom(data):
   print(data)
-  emit("newMsg", data, room=data["room"])
+  emit("newMsg", data)
 
 
 if __name__ == "__main__":
