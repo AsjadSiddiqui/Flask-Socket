@@ -32,6 +32,7 @@ def connect():
     "name": userName,
     "room": room
   }
+  join_room(room)
   # emit("connect", "HI")
   emit("connected", userInfo)
 
